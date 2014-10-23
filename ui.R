@@ -4,28 +4,49 @@
 # User Interface File for InternetSpeedDash Shiny App.
 
 library(shiny)
+library(googleVis)
 
-shinyUI(fluidPage(
-    
+
+
+
+shinyUI(fluidPage(    
     titlePanel("Home Internet Speed Dashboard"),
-    
-    tabsetPanel(
-        tabPanel("Monitor", 
-                 # put time series plots here
-                 
-                 ),
-        tabPanel("Explore",
-                 # put in some exploratory features here
-                 
-                 ),
-        tabPanel("Predict",
-                 # maybe forcast future 
-                 
-                 ),
-        tabPanel("Help",
-                 # documentation goes here
-                 
-                 )
-    )
+    fluidRow(textOutput("intro")),
+    sidebarLayout( 
+        sidebarPanel(width = 3,
+                     selectInput(inputId = "serverSelect",
+                                 label = "Select Server",
+                                 choices = as.character(serverNames),
+                                 selected = as.character(serverNames),
+                                 multiple = TRUE),
+                     selectInput(inputId = "speedSelect",
+                                 label = "Select Plan Speed",
+                                 choices = c(25,105),
+                                 selected =  c(25,105),
+                                 multiple = TRUE),                    
+                     dateRangeInput(inputId = "dateInput",
+                                    label = "Select Date Range",
+                                    start = dateRange[1],
+                                    end = dateRange[2],
+                                    min = dateRange[1],
+                                    max = dateRange[2]),
+                     checkboxInput(inputId = "smoother",
+                                   label = "Apply Smoother",
+                                   value = FALSE)
+        ),
+        mainPanel(
+            tabsetPanel(
+                tabPanel("Monitor",
+                         # put time series plots here
+                         plotOutput("timeSeries")
+                ),
+                tabPanel("Help"
+                         # documentation goes here
+                         
+                ) 
+            )
+        )  
+        
+    )  
 ))
 
