@@ -1,3 +1,7 @@
 [submodule "extendCSV"]
 	path = tespeed
 	url = https://github.com/klimburg/tespeed
+
+[submodule "Internet-Speed-Dashboard-Pres"]
+	path = Internet-Speed-Dashboard-Pres
+	url = https://github.com/klimburg/Internet-Speed-Dashboard-Pres
