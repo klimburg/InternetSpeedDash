@@ -4,14 +4,10 @@
 # User Interface File for InternetSpeedDash Shiny App.
 
 library(shiny)
-library(googleVis)
-
-
-
 
 shinyUI(fluidPage(    
     titlePanel("Home Internet Speed Dashboard"),
-    fluidRow(textOutput("intro")),
+    fluidRow(includeMarkdown("Intro.Rmd")),
     sidebarLayout( 
         sidebarPanel(width = 3,
                      selectInput(inputId = "serverSelect",
@@ -21,8 +17,8 @@ shinyUI(fluidPage(
                                  multiple = TRUE),
                      selectInput(inputId = "speedSelect",
                                  label = "Select Plan Speed",
-                                 choices = c(25,105),
-                                 selected =  c(25,105),
+                                 choices = c("25 Mbit/Sec","105 Mbit/Sec"),
+                                 selected =  c("25 Mbit/Sec","105 Mbit/Sec"),
                                  multiple = TRUE),                    
                      dateRangeInput(inputId = "dateInput",
                                     label = "Select Date Range",
@@ -40,8 +36,9 @@ shinyUI(fluidPage(
                          # put time series plots here
                          plotOutput("timeSeries")
                 ),
-                tabPanel("Help"
+                tabPanel("Help",
                          # documentation goes here
+                         includeMarkdown("Help.Rmd")
                          
                 ) 
             )

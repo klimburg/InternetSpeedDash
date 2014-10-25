@@ -1,0 +1,34 @@
+---
+title: "Help"
+author: "Kevin C. Limburg"
+date: "10/25/2014"
+output: html_document
+---
+
+### About
+
+This application displays the upload and download speed in megabits per second as measured by [Janhouse/tespeed](https://github.com/Janhouse/tespeed) python tool. A cronjob is set up to run the script once per hour and output the data to a csv fie. 
+
+On my machine, running Ubuntu 14.04, this can be set up by editing crontab:
+
+```
+$ crontab -e
+```
+
+And then adding the following line:
+
+```
+0 * * * * python ~/InternetSpeedDash/tespeed/tespeed.py -w >> ~/InternetSpeedDash/data/speedtest.csv
+```
+
+The only change in [my fork of tespeed](https://github.com/klimburg/tespeed) is some minor changes to the CSV formatting that is invoked with the -w argument, e.g. adding a timestamp.
+
+### Options
+
+#### Monitor
+
+
+1. Select Server: Allows filtering of the servers used in the time series plot.
+2. Select Plan Speed: This is the 'download speed' of my internet plan from Comcast Xfinity at the time of the measurement. I believe Comcast refers to this a a maximum speed not a typical spped.
+3. Select Date Range: Allows filtering of the data displayed by date.
+4. Apply Smoother: Adds loess smoother to time series using ggplot2::geom_smooth().

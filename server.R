@@ -6,16 +6,16 @@
 
 library(shiny)
 library(ggplot2)
+ 
 
 shinyServer(function(input, output) {
-    
-    output$intro<-renderText("Put mark down in here later")
-    
+        
     output$timeSeries<-renderPlot({
         # filters
         servers<-input$serverSelect
         dates <- as.POSIXct(input$dateInput)
-        speeds <- input$speedSelect
+        speeds <- str_replace_all(input$speedSelect," Mbit/Sec","")
+        speeds <- as.numeric(speeds)
         #apply filters
         df.plot<-df.melt%>%
             filter(server %in% servers,

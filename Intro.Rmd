@@ -1,0 +1,8 @@
+---
+title: "Intro"
+author: "Kevin C. Limburg"
+date: "10/25/2014"
+output: html_document
+---
+
+A home internet speed monitoring web application built in shiny framework for R. Utilizing [Janhouse/tespeed](https://github.com/Janhouse/tespeed) python tool  for scripting speedtest.net. This application was built as a project for the Coursera Data Science Specialization Developing Data Products class. The source files can all be found [here](https://github.com/klimburg/InternetSpeedDash). More information can be found in the 'Help' tab.
