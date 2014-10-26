@@ -30,5 +30,7 @@ The only change in [my fork of tespeed](https://github.com/klimburg/tespeed) is 
 
 1. Select Server: Allows filtering of the servers used in the time series plot.
 2. Select Plan Speed: This is the 'download speed' of my internet plan from Comcast Xfinity at the time of the measurement. I believe Comcast refers to this a a maximum speed not a typical spped.
-3. Select Date Range: Allows filtering of the data displayed by date.
-4. Apply Smoother: Adds loess smoother to time series using ggplot2::geom_smooth().
+3. Color By: Select the factor which will be used for coloring the plots
+4. Select Date Range: Allows filtering of the data displayed by date.
+5. Apply Smoother: Adds loess smoother to time series using ggplot2::geom_smooth().
+6. Group Lines By Server: Groups time series lines by server regardless of 'Color By' setting.
