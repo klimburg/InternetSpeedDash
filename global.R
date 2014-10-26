@@ -9,7 +9,7 @@ library(stringr)
 library(lubridate)
 
 # read in data and clean
-df<-read.csv(file = "./data/speedtest.csv", header = F)
+df<-read.csv(file = "data/speedtest.csv", header = F)
 names(df) <- c("date.time", "Download", "Upload", "units", "server")
 df$date.time <- as.POSIXct(df$date.time, origin = '1970-01-01')
 df$server <- str_replace_all(df$server,pattern = "\\[\\'http:\\/\\/","")
