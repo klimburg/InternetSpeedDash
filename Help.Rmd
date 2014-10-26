@@ -7,7 +7,7 @@ output: html_document
 
 ### About
 
-This application displays the upload and download speed in megabits per second as measured by [Janhouse/tespeed](https://github.com/Janhouse/tespeed) python tool. A cronjob is set up to run the script once per hour and output the data to a csv fie. 
+This application displays the upload and download speed in megabits per second as measured by [Janhouse/tespeed](https://github.com/Janhouse/tespeed) python tool. A cronjob is set up to run the script once per hour and output the data to a csv fie. I set this up because I was curious about how fast my typical speeds were compared to the advertised plan speed. 
 
 On my machine, running Ubuntu 14.04, this can be set up by editing crontab:
 
